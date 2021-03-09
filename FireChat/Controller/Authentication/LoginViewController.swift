@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     let iconImageHeight: CGFloat = 120
     let standardPadding: CGFloat = 20
     let componentHeight: CGFloat = 50
+    let componentImageIconHeight: CGFloat = 25
     
     private let iconImage: UIImageView = {
         let imageView = UIImageView()
@@ -22,18 +23,83 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     
-    private let emailContainerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .cyan
-        return view
+    private lazy var emailContainerView: UIView = {
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+//        containerView.backgroundColor = .cyan
+        
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "envelope")
+        imageView.tintColor = .white
+        containerView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
+                                               constant: 8),
+            imageView.heightAnchor.constraint(equalToConstant: componentImageIconHeight),
+            imageView.widthAnchor.constraint(equalToConstant: componentImageIconHeight)
+        ])
+        
+        containerView.addSubview(emailTextField)
+        NSLayoutConstraint.activate([
+            emailTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            emailTextField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor,
+                                                    constant: 8),
+            emailTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
+                                                   constant: 2)
+        ])
+        
+        return containerView
     }()
     
-    private let passwordContainerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .yellow
-        return view
+    private lazy var passwordContainerView: UIView = {
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+//        containerView.backgroundColor = .yellow
+        
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(systemName: "lock")
+        imageView.tintColor = .white
+        containerView.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
+                                               constant: 8),
+            imageView.heightAnchor.constraint(equalToConstant: componentImageIconHeight),
+            imageView.widthAnchor.constraint(equalToConstant: componentImageIconHeight)
+        ])
+        
+        containerView.addSubview(passwordTextField)
+        NSLayoutConstraint.activate([
+            passwordTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            passwordTextField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor,
+                                                    constant: 8),
+            passwordTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
+                                                   constant: 2)
+        ])
+        
+        return containerView
+    }()
+    
+    private let emailTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Email"
+        textField.textColor = .white
+        return textField
+    }()
+    
+    private let passwordTextField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Password"
+        textField.textColor = .white
+        textField.isSecureTextEntry = true
+        return textField
     }()
     
     private let loginButton: UIButton = {
@@ -42,7 +108,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 5
         button.titleLabel?.font = .boldSystemFont(ofSize: 16)
-        button.backgroundColor = .systemPink
+        button.backgroundColor = .systemTeal
         return button
     }()
     
@@ -96,8 +162,8 @@ class LoginViewController: UIViewController {
     
     func configureGradientLayer() {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemIndigo.cgColor, UIColor.systemPink.cgColor]
-        gradient.locations = [0, 1]
+        gradient.colors = [UIColor.systemPink.cgColor, UIColor.systemTeal.cgColor]
+        gradient.locations = [0.5, 1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
     }
