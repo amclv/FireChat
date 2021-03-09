@@ -37,7 +37,7 @@ class LoginViewController: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Log In", for: .normal)
         button.layer.cornerRadius = 5
-        button.titleLabel?.font = .boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.backgroundColor = .systemTeal
         return button
     }()
@@ -50,6 +50,20 @@ class LoginViewController: UIViewController {
         stack.alignment = .fill
         stack.distribution = .fill
         return stack
+    }()
+    
+    private let dontHaveAccountButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        let attributedTitle = NSMutableAttributedString(string: "Don't have an account? ",
+                                                        attributes: [.font: UIFont.systemFont(ofSize: 16),
+                                                                     .foregroundColor: UIColor.white])
+        attributedTitle.append(NSAttributedString(string: "Sign Up",
+                                                  attributes: [.font: UIFont.boldSystemFont(ofSize: 16),
+                                                               .foregroundColor: UIColor.white]))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        return button
     }()
 
     override func viewDidLoad() {
@@ -88,14 +102,30 @@ class LoginViewController: UIViewController {
             vStack.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                              constant: -standardPadding)
         ])
+        
+        view.addSubview(dontHaveAccountButton)
+        NSLayoutConstraint.activate([
+            dontHaveAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,
+                                                           constant: standardPadding),
+            dontHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                          constant: -standardPadding),
+            dontHaveAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
+                                                            constant: -standardPadding)
+        ])
     }
     
     func configureGradientLayer() {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPink.cgColor, UIColor.systemTeal.cgColor]
+        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemTeal.cgColor]
         gradient.locations = [0.5, 1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
+    }
+    
+    // MARK: - Actions -
+    @objc func handleShowSignUp() {
+        let registerController = RegisterViewController()
+        navigationController?.pushViewController(registerController, animated: true)
     }
 
 }
