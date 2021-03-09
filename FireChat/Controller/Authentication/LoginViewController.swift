@@ -12,7 +12,6 @@ class LoginViewController: UIViewController {
     let iconImageHeight: CGFloat = 120
     let standardPadding: CGFloat = 20
     let componentHeight: CGFloat = 50
-    let componentImageIconHeight: CGFloat = 25
     
     private let iconImage: UIImageView = {
         let imageView = UIImageView()
@@ -23,81 +22,12 @@ class LoginViewController: UIViewController {
         return imageView
     }()
     
-    private lazy var emailContainerView: UIView = {
-        let containerView = UIView()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.backgroundColor = .cyan
-        
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "envelope")
-        imageView.tintColor = .white
-        containerView.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
-                                               constant: 8),
-            imageView.heightAnchor.constraint(equalToConstant: componentImageIconHeight),
-            imageView.widthAnchor.constraint(equalToConstant: componentImageIconHeight)
-        ])
-        
-        containerView.addSubview(emailTextField)
-        NSLayoutConstraint.activate([
-            emailTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            emailTextField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor,
-                                                    constant: 8),
-            emailTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
-                                                   constant: 2)
-        ])
-        
-        return containerView
-    }()
+    private lazy var emailContainerView = InputContainerView(image: UIImage(systemName: "envelope"), textField: emailTextField)
+    private lazy var passwordContainerView = InputContainerView(image: UIImage(systemName: "lock"), textField: passwordTextField)
+    private let emailTextField = CustomTextField(placeholder: "Email")
     
-    private lazy var passwordContainerView: UIView = {
-        let containerView = UIView()
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.backgroundColor = .yellow
-        
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(systemName: "lock")
-        imageView.tintColor = .white
-        containerView.addSubview(imageView)
-        NSLayoutConstraint.activate([
-            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
-                                               constant: 8),
-            imageView.heightAnchor.constraint(equalToConstant: componentImageIconHeight),
-            imageView.widthAnchor.constraint(equalToConstant: componentImageIconHeight)
-        ])
-        
-        containerView.addSubview(passwordTextField)
-        NSLayoutConstraint.activate([
-            passwordTextField.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            passwordTextField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor,
-                                                    constant: 8),
-            passwordTextField.bottomAnchor.constraint(equalTo: containerView.bottomAnchor,
-                                                   constant: 2)
-        ])
-        
-        return containerView
-    }()
-    
-    private let emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Email"
-        textField.textColor = .white
-        return textField
-    }()
-    
-    private let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Password"
-        textField.textColor = .white
+    private let passwordTextField: CustomTextField = {
+        let textField = CustomTextField(placeholder: "Password")
         textField.isSecureTextEntry = true
         return textField
     }()

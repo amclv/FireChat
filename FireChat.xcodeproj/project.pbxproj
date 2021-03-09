@@ -14,6 +14,8 @@
 		1A451CDE25F722D700EE91B0 /* ConversationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CDD25F722D700EE91B0 /* ConversationsViewController.swift */; };
 		1A451CE625F7370100EE91B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CE525F7370100EE91B0 /* LoginViewController.swift */; };
 		1A451CE925F7370900EE91B0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CE825F7370900EE91B0 /* RegisterViewController.swift */; };
+		1A451CEC25F74D4500EE91B0 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CEB25F74D4500EE91B0 /* InputContainerView.swift */; };
+		1A451CEF25F7506A00EE91B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CEE25F7506A00EE91B0 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1A451CDD25F722D700EE91B0 /* ConversationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewController.swift; sourceTree = "<group>"; };
 		1A451CE525F7370100EE91B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1A451CE825F7370900EE91B0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1A451CEB25F74D4500EE91B0 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
+		1A451CEE25F7506A00EE91B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 		1A451CD825F722AE00EE91B0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1A451CEB25F74D4500EE91B0 /* InputContainerView.swift */,
+				1A451CEE25F7506A00EE91B0 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,7 +202,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A451CEF25F7506A00EE91B0 /* CustomTextField.swift in Sources */,
 				1A451CE625F7370100EE91B0 /* LoginViewController.swift in Sources */,
+				1A451CEC25F74D4500EE91B0 /* InputContainerView.swift in Sources */,
 				1A451CE925F7370900EE91B0 /* RegisterViewController.swift in Sources */,
 				1A451CBF25F7215D00EE91B0 /* AppDelegate.swift in Sources */,
 				1A451CC125F7215D00EE91B0 /* SceneDelegate.swift in Sources */,
