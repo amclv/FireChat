@@ -17,6 +17,7 @@
 		1A451CE925F7370900EE91B0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CE825F7370900EE91B0 /* RegisterViewController.swift */; };
 		1A451CEC25F74D4500EE91B0 /* InputContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CEB25F74D4500EE91B0 /* InputContainerView.swift */; };
 		1A451CEF25F7506A00EE91B0 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A451CEE25F7506A00EE91B0 /* CustomTextField.swift */; };
+		1A66B26C25F974B1005EBEF2 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A66B26B25F974B1005EBEF2 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1A451CE825F7370900EE91B0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1A451CEB25F74D4500EE91B0 /* InputContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputContainerView.swift; sourceTree = "<group>"; };
 		1A451CEE25F7506A00EE91B0 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		1A66B26B25F974B1005EBEF2 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		1A451CD925F722B200EE91B0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1A66B26B25F974B1005EBEF2 /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				1A451CBF25F7215D00EE91B0 /* AppDelegate.swift in Sources */,
 				1A451CC125F7215D00EE91B0 /* SceneDelegate.swift in Sources */,
 				1A451CDE25F722D700EE91B0 /* ConversationsViewController.swift in Sources */,
+				1A66B26C25F974B1005EBEF2 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

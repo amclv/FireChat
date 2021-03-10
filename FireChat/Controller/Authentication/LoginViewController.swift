@@ -13,6 +13,8 @@ class LoginViewController: UIViewController {
     let standardPadding: CGFloat = 20
     let componentHeight: CGFloat = 50
     
+    private var viewModel = LoginViewModel()
+    
     private let iconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +41,7 @@ class LoginViewController: UIViewController {
         button.layer.cornerRadius = 5
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         button.backgroundColor = .systemTeal
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -72,6 +75,15 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Functions -
+    func checkFormStatus() {
+        if viewModel.formIsValid {
+            loginButton.isEnabled = true
+        } else {
+            loginButton.isEnabled = false
+            loginButton.backgroundColor = .lightGray
+        }
+    }
+    
     private func configureUI() {
         configureGradientLayer()
         navigationController?.navigationBar.isHidden = true
@@ -112,12 +124,28 @@ class LoginViewController: UIViewController {
             dontHaveAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,
                                                             constant: -standardPadding)
         ])
+        
+        emailTextField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
     }
     
     // MARK: - Actions -
     @objc func handleShowSignUp() {
         let registerController = RegisterViewController()
         navigationController?.pushViewController(registerController, animated: true)
+    }
+    
+    @objc func textChanged(sender: UITextField) {
+        if sender == emailTextField {
+            viewModel.email = sender.text
+        } else {
+            viewModel.password = sender.text
+        }
+        checkFormStatus()
+    }
+    
+    @objc func handleLogin() {
+        print("Cant")
     }
 
 }
