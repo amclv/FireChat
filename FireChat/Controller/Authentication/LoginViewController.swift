@@ -114,14 +114,6 @@ class LoginViewController: UIViewController {
         ])
     }
     
-    func configureGradientLayer() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemTeal.cgColor]
-        gradient.locations = [0.5, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
-    
     // MARK: - Actions -
     @objc func handleShowSignUp() {
         let registerController = RegisterViewController()
